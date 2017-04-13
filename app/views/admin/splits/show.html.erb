@@ -1,7 +1,7 @@
 <div class="TakeoverText">
-  <h1 class="TakeoverText-title sc-m-v--l">Split: <%= @split.name %></h1>
+  <h1 class="TakeoverText-title sc-m-v--l">Split: <%= @split_detail.name %></h1>
 </div>
 
-<%= render partial: "details", locals: { split: @split } %>
-<%= render partial: "test_overview", locals: { split: @split } %>
-<%= render partial: "variants", locals: { split: @split } %>
+<%= render partial: "details", locals: { split_detail: @split_detail } %>
+<%= render partial: "test_overview", locals: { split_detail: @split_detail } %>
+<%= render partial: "variants", locals: { split_detail: @split_detail } %>

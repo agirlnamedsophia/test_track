@@ -2,39 +2,39 @@
   <div class="InfoCard-header">
     <h4>Test Overview</h4>
 
-    <% if split.has_details? %>
-      <%= link_to "Edit", edit_admin_split_details_path(split), class: 'edit-details-link' %>
+    <% if split_detail.has_details? %>
+      <%= link_to "Edit", edit_admin_split_details_path(split_detail.split), class: 'edit-details-link' %>
     <% else %>
-      <%= link_to "Add Details", edit_admin_split_details_path(split), class: 'add-details-link button sc-m-r--s' %>
+      <%= link_to "Add Details", edit_admin_split_details_path(split_detail.split), class: 'add-details-link button sc-m-r--s' %>
     <% end %>
   </div>
 
   <hr class="InfoCard-divider">
-  <% if split.has_details? %>
+  <% if split_detail.has_details? %>
     <table class="DescriptionTable borderless bottom">
       <tr>
         <td>Squad Owner</td>
-        <td><%= split.owner %></td>
+        <td><%= split_detail.owner %></td>
       </tr>
       <tr>
         <td>Platform</td>
-        <td><%= split.platform %></td>
+        <td><%= split_detail.platform %></td>
       </tr>
       <tr>
         <td>Location</td>
-        <td><%= split.location %></td>
+        <td><%= split_detail.location %></td>
       </tr>
       <tr>
         <td>Description</td>
-        <td><%= split.description %></td>
+        <td><%= split_detail.description %></td>
       </tr>
       <tr>
         <td>Hypothesis</td>
-        <td><%= split.hypothesis %></td>
+        <td><%= split_detail.hypothesis %></td>
       </tr>
       <tr>
         <td>Assignment Criteria</td>
-        <td><%= split.assignment_criteria %></td>
+        <td><%= split_detail.assignment_criteria %></td>
       </tr>
     </table>
   <% else %>

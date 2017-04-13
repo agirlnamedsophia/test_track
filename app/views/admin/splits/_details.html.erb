@@ -8,26 +8,26 @@
       <tr class="population-row">
         <td>Population Size</td>
         <td>
-          <span class='population'><%= @split.assignments.count %></span>
+          <span class='population'><%= split_detail.assignments.count %></span>
         </td>
         <td>
-          <span><%= link_to "Edit", new_admin_split_bulk_assignment_path(@split), class: 'upload-new-assignments-link' %></span>
+          <span><%= link_to "Edit", new_admin_split_bulk_assignment_path(split_detail.split), class: 'upload-new-assignments-link' %></span>
         </td>
       </tr>
       <tr>
         <td>Status</td>
-        <td class="u-status--<%= @split.finished? ? 'finished' : 'active' %>"><%= @split.finished? ? 'Finished' : 'Active' %><span class="sc-p--s">🏁</span></td>
-        <td><%= link_to "Edit", new_admin_split_decision_path(@split), class: 'decide-split-link' %></td>
+        <td class="u-status--<%= split_detail.finished? ? 'finished' : 'active' %>"><%= split_detail.finished? ? 'Finished' : 'Active' %><span class="sc-p--s">🏁</span></td>
+        <td><%= link_to "Edit", new_admin_split_decision_path(split_detail.split), class: 'decide-split-link' %></td>
       </tr>
       <tr>
         <td>App</td>
-        <td><%= @split.owner_app.name.capitalize %></td>
+        <td><%= split_detail.owner_app.name.capitalize %></td>
         <td>&nbsp;</td>
       </tr>
       <tr>
         <td>Creation</td>
         <td>
-          <span><%= @split.created_at %></span>
+          <span><%= split_detail.created_at %></span>
         </td>
         <td>&nbsp;</td>
       </tr>

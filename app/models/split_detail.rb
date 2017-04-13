@@ -4,7 +4,7 @@ class SplitDetail
   include DelegateAttribute
 
   attr_accessor :split
-  delegate :name, :variants, to: :split
+  delegate :name, :owner_app, :variants, :assignments, :created_at, :finished?, :has_details?, to: :split
   delegate_attribute :hypothesis, :assignment_criteria, :description, :owner, :location, :platform, to: :split
 
   validates :hypothesis, :assignment_criteria, :description, :owner, :location, :platform, presence: true
@@ -17,8 +17,9 @@ class SplitDetail
   end
 
   def variant_details
-    @variant_details ||= variants.map do |variant|
-      VariantDetail.find_or_initialize_by(split: split, variant: variant)
+    variants.map do |variant|
+      detail = VariantDetail.find_or_initialize_by(split: split, variant: variant)
+      VariantPresenter.new(detail)
     end
   end
 
