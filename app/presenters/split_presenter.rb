@@ -1,7 +1,7 @@
 class SplitPresenter < SimpleDelegator
   def variant_details
-    variants.map do |variant|
-      detail = VariantDetail.find_or_initialize_by(split: __getobj__, variant: variant)
+    details = __getobj__.detail.variant_details
+    details.map do |detail|
       VariantPresenter.new(detail)
     end
   end
